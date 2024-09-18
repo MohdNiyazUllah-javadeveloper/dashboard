@@ -12,11 +12,11 @@ import SettingsPage from "./pages/SettingsPage";
 
 function App() {
 	return (
-		<div className='flex h-screen bg-gray-900 text-gray-100 overflow-hidden'>
+		<div className='flex h-screen bg-white-900 text-black-1000 overflow-hidden'>
 			{/* BG */}
 			<div className='fixed inset-0 z-0'>
-				<div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-80' />
-				<div className='absolute inset-0 backdrop-blur-sm' />
+				<div className='absolute inset-0 bg-white-to-br from-white-900 via-white-800 to-gray-900 opacity-80' />
+				<div className='absolute inset-0 backdrop-black-sm' />
 			</div>
 
 			<Sidebar />

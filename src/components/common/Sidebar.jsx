@@ -15,7 +15,7 @@ const SIDEBAR_ITEMS = [
 	{ name: "Sales", icon: DollarSign, color: "#00e922", href: "/sales" },
 	{ name: "Orders", icon: ShoppingCart, color: "#f99507", href: "/orders" },
 	{ name: "Analytics", icon: TrendingUp, color: "#00d1c1", href: "/analytics" },
-	{ name: "Settings", icon: Settings, color: "#ffffff", href: "/settings" },
+	{ name: "Settings", icon: Settings, color: "#808080", href: "/settings" },
 ];
 
 const Sidebar = () => {
@@ -28,7 +28,7 @@ const Sidebar = () => {
 			}`}
 			animate={{ width: isSidebarOpen ? 256 : 80 }}
 		>
-			<div className='h-full bg-EAE4DD-300 bg-opacity-50 backdrop-blur-md p-4 flex flex-col border-r border-gray-500'>
+			<div className='h-full bg-Seashell-300 bg-blak-50 backdrop-black-md p-4 flex flex-col border-r border-pink-500'>
 				<motion.button
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
@@ -41,7 +41,7 @@ const Sidebar = () => {
 				<nav className='mt-8 flex-grow'>
 					{SIDEBAR_ITEMS.map((item) => (
 						<Link key={item.href} to={item.href}>
-							<motion.div className='flex items-center p-4 text-sm font-medium rounded-lg hover:bg-white-700 transition-colors mb-2'>
+							<motion.div className='flex items-center p-4 text-sm font-medium rounded-lg hover:bg-gray-300 transition-colors mb-2'>
 								<item.icon size={20} style={{ color: item.color, minWidth: "20px" }} />
 								<AnimatePresence>
 									{isSidebarOpen && (

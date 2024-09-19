@@ -1,15 +1,10 @@
-import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users } from "lucide-react";
+import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users, LogOut } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const SIDEBAR_ITEMS = [
-	{
-		name: "Overview",
-		icon: BarChart2,
-		color: "#",
-		href: "/",
-	},
+	{ name: "Overview", icon: BarChart2, color: "#", href: "/" },
 	{ name: "Products", icon: ShoppingBag, color: "#ff6c0a", href: "/products" },
 	{ name: "Users", icon: Users, color: "#3bcbd5", href: "/users" },
 	{ name: "Sales", icon: DollarSign, color: "#00e922", href: "/sales" },
@@ -29,6 +24,7 @@ const Sidebar = () => {
 			animate={{ width: isSidebarOpen ? 256 : 80 }}
 		>
 			<div className='h-full bg-Seashell-300 bg-blak-50 backdrop-black-md p-4 flex flex-col border-r border-pink-500'>
+				{/* Sidebar toggle button */}
 				<motion.button
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
@@ -38,6 +34,7 @@ const Sidebar = () => {
 					<Menu size={24} />
 				</motion.button>
 
+				{/* Sidebar navigation */}
 				<nav className='mt-8 flex-grow'>
 					{SIDEBAR_ITEMS.map((item) => (
 						<Link key={item.href} to={item.href}>
@@ -60,8 +57,31 @@ const Sidebar = () => {
 						</Link>
 					))}
 				</nav>
+
+				{/* Logout button at the bottom */}
+				<div className='mt-auto'>
+					<Link to='/logout'>
+						<motion.div className='flex items-center p-4 text-sm font-medium rounded-lg hover:bg-red-500 transition-colors'>
+							<LogOut size={20} style={{ color: "#ff0000", minWidth: "20px" }} />
+							<AnimatePresence>
+								{isSidebarOpen && (
+									<motion.span
+										className='ml-4 whitespace-nowrap'
+										initial={{ opacity: 0, width: 0 }}
+										animate={{ opacity: 1, width: "auto" }}
+										exit={{ opacity: 0, width: 0 }}
+										transition={{ duration: 0.2, delay: 0.3 }}
+									>
+										Logout
+									</motion.span>
+								)}
+							</AnimatePresence>
+						</motion.div>
+					</Link>
+				</div>
 			</div>
 		</motion.div>
 	);
 };
+
 export default Sidebar;
